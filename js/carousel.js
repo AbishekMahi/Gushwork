@@ -62,7 +62,7 @@ export function initHeroCarousel() {
   }
 
   zoomPanel.style.backgroundImage = `url(${images[0].src})`;
-  zoomPanel.style.backgroundSize = "250%";
+  zoomPanel.style.backgroundSize = "400%";
 
   stage.addEventListener("mouseenter", () => {
     zoomPanel.style.backgroundImage = `url(${images[currentIndex].src})`;
