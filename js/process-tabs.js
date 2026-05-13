@@ -6,6 +6,7 @@ export function initProcessTabs() {
   const processCard = document.querySelector(".process__card");
   if (!processCard) return;
 
+  const tabsContainer = processCard.querySelector(".process__tabs");
   const tabs = [...processCard.querySelectorAll(".process__tab")];
   const panels = [...processCard.querySelectorAll(".process__panel")];
   const prevBtn = document.getElementById("processPrevBtn");
@@ -21,7 +22,22 @@ export function initProcessTabs() {
     0,
   );
 
-  const activateTab = (index) => {
+  const scrollActiveTabIntoView = (behavior = "smooth") => {
+    if (!tabsContainer) return;
+
+    const activeTab = tabs[activeIndex];
+    const targetLeft =
+      activeTab.offsetLeft - (tabsContainer.clientWidth - activeTab.offsetWidth) / 2;
+
+    tabsContainer.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior,
+    });
+  };
+
+  const activateTab = (index, options = {}) => {
+    const { scrollTab = true } = options;
+
     tabs[activeIndex].classList.remove("active");
     tabs[activeIndex].setAttribute("aria-selected", "false");
     panels[activeIndex].classList.remove("active");
@@ -37,11 +53,9 @@ export function initProcessTabs() {
       ].textContent.trim()}`;
     }
 
-    tabs[activeIndex].scrollIntoView({
-      block: "nearest",
-      inline: "center",
-      behavior: "smooth",
-    });
+    if (scrollTab) {
+      scrollActiveTabIntoView();
+    }
   };
 
   tabs.forEach((tab, i) => {
@@ -68,5 +82,5 @@ export function initProcessTabs() {
     });
   });
 
-  activateTab(activeIndex);
+  activateTab(activeIndex, { scrollTab: false });
 }

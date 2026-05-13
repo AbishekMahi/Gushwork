@@ -55,6 +55,7 @@
 .specs__table thead tr {
   background: #374151;
 }
+
 .specs__table tbody {
   background: #1f2937;
 }
@@ -240,11 +241,13 @@
   gap: var(--space-xl);
   flex-wrap: wrap;
 }
-.catalogue-bar__text{
+
+.catalogue-bar__text {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
 }
+
 .catalogue-bar__text strong {
   font-size: var(--font-size-lg);
   line-height: 1.2;
@@ -328,18 +331,26 @@
 .apps-carousel {
   padding-left: 24px;
   padding-right: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+
+.apps-carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .apps-carousel__track {
   display: flex;
   gap: var(--space-md);
-  transition: transform var(--transition-slow);
-  will-change: transform;
+  width: max-content;
 }
 
 .app-card {
   position: relative;
-  flex: 0 0 calc(25% - 12px);
+  flex: 0 0 calc(15% - 12px);
   min-width: 260px;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -366,11 +377,9 @@
   left: 0;
   right: 0;
   padding: var(--space-lg);
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0) 100%);
   color: var(--color-white);
 }
 
