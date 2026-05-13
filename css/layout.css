@@ -1,0 +1,11 @@
+/* ============================================
+   LAYOUT UTILITIES
+============================================ */
+.container,
+.sticky-header__inner,
+.navbar__mobile-menu {
+  width: 100%;
+  max-width: calc(var(--container-max) + (var(--page-gutter) * 2));
+  margin: 0 auto;
+  padding-inline: var(--page-gutter);
+}
