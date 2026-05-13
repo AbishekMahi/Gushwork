@@ -36,6 +36,7 @@
   line-height: 1.4;
   text-align: right;
   font-family: "Urbanist", sans-serif;
+  max-width: 380px;
 }
 
 .footer__tagline .text-accent {

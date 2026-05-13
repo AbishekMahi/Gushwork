@@ -10,7 +10,8 @@
 .hero__inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
+  gap: var(--space-2xl);
+  grid-row-gap: var(--space-md);
   align-items: start;
 }
 
@@ -23,7 +24,7 @@
 .hero__info {
   position: relative;
   isolation: isolate;
-  padding: 0 var(--space-xl);
+  padding: 0 ;
 }
 
 .hero__info::after {

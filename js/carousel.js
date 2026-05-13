@@ -4,6 +4,7 @@
  */
 export function initHeroCarousel() {
   const stage = document.querySelector(".carousel__stage");
+  const thumbsContainer = document.querySelector(".carousel__thumbs");
   const images = document.querySelectorAll(".carousel__stage .carousel__img");
   const thumbs = document.querySelectorAll(
     ".carousel__thumbs .carousel__thumb",
@@ -16,16 +17,35 @@ export function initHeroCarousel() {
 
   let currentIndex = 0;
 
+  const syncThumbStrip = () => {
+    if (!thumbsContainer || !thumbs[currentIndex]) return;
+
+    const activeThumb = thumbs[currentIndex];
+    const targetLeft =
+      activeThumb.offsetLeft -
+      (thumbsContainer.clientWidth - activeThumb.offsetWidth) / 2;
+
+    thumbsContainer.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: "smooth",
+    });
+  };
+
   const goTo = (index) => {
-    images[currentIndex].classList.remove("active");
-    thumbs[currentIndex].classList.remove("active");
-    thumbs[currentIndex].setAttribute("aria-selected", "false");
+    images.forEach((image) => image.classList.remove("active"));
+    thumbs.forEach((thumb) => {
+      thumb.classList.remove("active");
+      thumb.setAttribute("aria-selected", "false");
+    });
 
     currentIndex = (index + images.length) % images.length;
 
     images[currentIndex].classList.add("active");
-    thumbs[currentIndex].classList.add("active");
-    thumbs[currentIndex].setAttribute("aria-selected", "true");
+    if (thumbs[currentIndex]) {
+      thumbs[currentIndex].classList.add("active");
+      thumbs[currentIndex].setAttribute("aria-selected", "true");
+      syncThumbStrip();
+    }
 
     if (zoomPanel) {
       zoomPanel.style.backgroundImage = `url(${images[currentIndex].src})`;

@@ -28,7 +28,7 @@
 }
 
 .testimonials-carousel {
-  padding-left: 24px;
+  padding-left: 0;
   padding-right: 0;
 }
 
@@ -37,6 +37,7 @@
   gap: var(--space-lg);
   overflow-x: auto;
   padding-bottom: var(--space-md);
+  padding-left: 24px;
   padding-right: 24px;
   scrollbar-width: none;
 }
