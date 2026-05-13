@@ -4,7 +4,7 @@ A responsive landing page assignment built as a static frontend project using HT
 
 ## Live Demo
 
-- Production: <https://abishekmahi.github.io/gushwork/>
+- Production: <https://abishekmahi.github.io/Gushwork/>
 - Portfolio: <https://abishekmahi.netlify.app/>
 
 ## Project Overview
