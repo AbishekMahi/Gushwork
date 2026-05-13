@@ -105,8 +105,9 @@
   font-weight: 600;
   margin-bottom: var(--space-md);
   color: var(--color-text-primary);
-  line-height: 1.3;
+  line-height: 1.2;
   letter-spacing: -0.03em;
+  font-family: 'Urbanist', sans-serif;
 }
 
 .process__panel-text p {

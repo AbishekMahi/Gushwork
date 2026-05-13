@@ -351,7 +351,7 @@
 .app-card {
   position: relative;
   flex: 0 0 calc(15% - 12px);
-  min-width: 260px;
+  min-width: 300px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 1;

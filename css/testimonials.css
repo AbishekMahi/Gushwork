@@ -63,10 +63,11 @@
 }
 
 .testimonial-card__title {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
   font-weight: 700;
   color: var(--color-text-primary);
-  line-height: 1.4;
+  line-height: 1.2;
+  font-family: 'Urbanist', sans-serif;
 }
 
 .testimonial-card__text {
